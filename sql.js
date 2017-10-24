@@ -19,14 +19,13 @@ module.exports = {
   },
   display: function(rows){
     rows.forEach((value, index) => {
-    console.log("----------");
-    console.log("Product Name: " + rows[index].name);
-    console.log("Price: " + rows[index].price);
-    console.log("Stock Left: " + rows[index].stock_left);
-    console.log("Product ID: " + rows[index].id);
-    console.log("\n");
-
+      console.log("----------");
+      console.log("Product Name: " + rows[index].name);
+      console.log("Price: " + rows[index].price);
+      console.log("Stock Left: " + rows[index].stock_left);
+      console.log("Product ID: " + rows[index].id);
     });
+    console.log("");
   },
   displayRows: function(){
     this.grabRows().then((rows) => {

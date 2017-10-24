@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mattlgroff/bamazon#readme",
   "dependencies": {
+    "inquirer": "^3.3.0",
     "mysql2": "^1.4.2"
   }
 }
