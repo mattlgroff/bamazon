@@ -1,8 +1,7 @@
+const  mysql = require('mysql2/promise');
+
 module.exports = {
   grabRows: async function() {
-    // get the client
-    const  mysql = require('mysql2/promise');
-    // create the connection
     const connection = await mysql.createConnection({
       host:"localhost",
       port: 3306,
@@ -33,6 +32,22 @@ module.exports = {
     }).catch((err) => {
       console.log("Error!");
     });
-  }
+  },
+  //'UPDATE `products` SET `items_left` = `items_left` - 1 WHERE `id` = ?'
+  decreaseQuantity: async function(id) {
+    const connection = await mysql.createConnection({
+      host:"localhost",
+      port: 3306,
+      user: "root",
+      password: process.env.mysql_pw,
+      database: "bamazon_DB"
+    });
+    // query database
+    // const [rows, fields] = await connection.execute('SELECT * FROM `products` WHERE `name` = ? AND `age` > ?', ['Morty', 14]);
+    const [rows, fields] =  await connection.execute('UPDATE `products` SET `stock_left` = `stock_left` - 1 WHERE `id` = ?', [id]);
+
+    connection.end();
+    return rows;
+  },
 }
 
