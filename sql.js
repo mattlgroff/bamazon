@@ -34,7 +34,7 @@ module.exports = {
     });
   },
   //'UPDATE `products` SET `items_left` = `items_left` - 1 WHERE `id` = ?'
-  decreaseQuantity: async function(id) {
+  decreaseQuantity: async function(id,quantity) {
     const connection = await mysql.createConnection({
       host:"localhost",
       port: 3306,
@@ -44,7 +44,7 @@ module.exports = {
     });
     // query database
     // const [rows, fields] = await connection.execute('SELECT * FROM `products` WHERE `name` = ? AND `age` > ?', ['Morty', 14]);
-    const [rows, fields] =  await connection.execute('UPDATE `products` SET `stock_left` = `stock_left` - 1 WHERE `id` = ?', [id]);
+    const [rows, fields] =  await connection.execute('UPDATE `products` SET `stock_left` = `stock_left` - ? WHERE `id` = ?', [quantity,id]);
 
     connection.end();
     return rows;

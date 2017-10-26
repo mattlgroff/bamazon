@@ -26,6 +26,7 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
   `price` decimal(10,2) unsigned NOT NULL,
+  `dept` varchar(25) NOT NULL,
   `stock_left` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
