@@ -1,3 +1,8 @@
+Youtube Link: https://youtu.be/pm7sycrFwS0
+
+Original Assignment
+------
+
 Node.js & MySQL
 
 Overview
